@@ -101,14 +101,18 @@ const DOM = {
 
 const Utils = {
     formatAmount(value) {
-        value = Number(value.replace(/\,\./g,"")) * 100
-        
-        return value
+        /* value = Number(value.replace(/\,\./g,"")) * 100
+        Deveria ser : 
+        value = Number(value.replace(/\,?\.?/g,"")) * 100
+        Mas como o input [type=number] já traz o dado em formato de número, por isso uma forma melhor de fazer esta operação é usar Math.round(), como abaixo:
+        */
+       value = value * 100
+       return Math.round(value)
     },
 
     formatDate(date) {
         const splittedDate = date.split("-")
-        
+
         return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
 
     },
@@ -142,7 +146,7 @@ const Form = {
             date: this.date.value
         }
     },
-    
+
     validateFields() {
         const { description, amount, date } = Form.getValues()
 
@@ -152,14 +156,14 @@ const Form = {
             throw new Error('Por favor preencha todos os campos!')
         }
     },
-    
+
     formatValues() {
         let { description, amount, date } = Form.getValues()
 
         amount = Utils.formatAmount(amount)
 
         date = Utils.formatDate(date)
-        
+
         return {
             description,
             amount,
@@ -194,10 +198,10 @@ const Form = {
             Modal.close()
 
             //Reload no app - já temos no Transaction.add()
-            
+
 
         } catch (error) {
-            alert (error.message)
+            alert(error.message)
         }
 
     }
@@ -214,7 +218,7 @@ const App = {
         DOM.updateBalance()
 
         StorageItens.set(Transaction.all)
-        
+
     },
     reload() {
         DOM.clearTransactions()

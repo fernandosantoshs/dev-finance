@@ -99,7 +99,7 @@ button:hover {
 /* Header --------------------*/
 header {
     background: #2d4a22;
-    padding: 2rem 0 10rem;
+    padding: 2rem 0 12rem;
     text-align: center;    
 }
 #logo {
@@ -109,7 +109,7 @@ header {
 
 /* Balance --------------------*/
 #balance {
-    margin-top: -8rem;
+    margin-top: -11rem;
 }
 #balance h2 {
     color: var(--ice-white  );
@@ -121,13 +121,17 @@ header {
     background: white;
     padding: 1.5rem 2rem;
     border-radius: .25rem;
+    border-style: outset;
+    border-color: #000;
+    border-width: .5px;
     margin-bottom: 2rem;
+    margin-top: 2rem;
     color: var(--dark-blue);
 }
 
 .card h3 {
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -149,6 +153,7 @@ header {
 
 .card.total {
     background: var(--green);
+    border-color: var(--light-green);
     color: white;
 }
 
